@@ -1,0 +1,48 @@
+#mainStyle {
+  color: #EEF0F2;
+  background-color: #0b1618;
+  background-image: url("../images/bgMain.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: right;
+}
+
+#vampires-list #new-vampire {
+  border: dashed 3px #d85435;
+  color: #d85435;
+  min-width: 12rem;
+}
+
+#vampires-list .myVampire {
+  color: #56817f;
+  border: solid 1px #56817f;
+  margin-left: 1rem;
+}
+
+#vampires-list .card {
+  background-color: #0b1618;
+  min-width: 12rem;
+  cursor: pointer;
+}
+
+#addStyle {
+  color: #0b1618;
+  background-color: #EEF0F2;
+}
+
+#addItem .form-group {
+  margin-bottom: 10px;
+}
+
+#addItem .form-group .form-control {
+  font-size: smaller;
+  background-color: #EEF0F2;
+  border: none;
+  border-bottom: solid #611F43 1px;
+  border-radius: 0%;
+}
+
+#addItem .form-group #generation {
+  background-color: #e0e3e7;
+}
+/*# sourceMappingURL=main.css.map */

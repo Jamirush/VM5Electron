@@ -1,0 +1,59 @@
+$M5-punch-hex: #F20530;
+$M5-light-hex: #EEF0F2;
+$M5-dark-hex: #0b1618;
+$M5-soft-hex: #d85435;
+$M5-midd-hex: #56817f ;
+$M5-push-dark-hex: #611F43;
+
+
+#mainStyle{
+    color: $M5-light-hex;
+    background-color: $M5-dark-hex;
+
+    background-image: url('../images/bgMain.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: right;
+    
+}
+
+#vampires-list{
+    #new-vampire{
+        border:dashed 3px $M5-soft-hex;    
+        color: $M5-soft-hex;
+        min-width: 12rem;
+    }
+    .myVampire{
+        color: $M5-midd-hex;
+        border:solid 1px $M5-midd-hex; 
+        margin-left: 1rem;
+    }
+    .card{
+        background-color: $M5-dark-hex;
+        min-width: 12rem;
+        cursor: pointer;
+    }
+}
+
+#addStyle{
+    color: $M5-dark-hex;
+    background-color: $M5-light-hex;
+}
+
+#addItem {
+    .form-group {
+        margin-bottom: 10px;
+        .form-control {
+            font-size: smaller;
+            background-color: $M5-light-hex;
+            border: none;
+            border-bottom: solid $M5-push-dark-hex 1px;
+            border-radius: 0%;
+        }
+
+        #generation{
+            background-color: darken($M5-light-hex, 5);
+        }
+    }
+
+}

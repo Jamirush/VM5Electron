@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../node_modules/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
+    
+    <link href="../../scss/main.css" rel="stylesheet">
+    <title>Création d'un vampire</title>
+</head>
+
+<body id="addStyle"> 
+    <div class="container">
+        <form id="addItem">
+        <div class="card mt-2">
+            <div class="card-body">
+                <div class="d-flex justify-content-between">
+                    <button id="reset" class="btn btn-outline-dark btn-sm">Tout effacer</button>    
+                    <h5>Créer votre vampire</h5>    
+                    <button type="submit" class="btn btn-outline-success btn-sm">Ajouter</button>    
+                </div>
+            </div>
+          </div>
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h1 class="mt-2 mb-2">Vampire</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h6>La Mascarade</h6>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="name" name="name"
+                                placeholder="Nom">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="chronique" name="chronique"
+                                placeholder="Chronique">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="sir" name="sir"
+                                placeholder="Sire">
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="concept" name="concept"
+                                    placeholder="Concept">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="ambition" name="ambition"
+                                    placeholder="Ambition">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="desire" name="desire"
+                                    placeholder="Désir">
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="predator" name="predator"
+                                    placeholder="Prédateur">
+                            </div>
+                            <div class="form-group">
+                                <select id="clan"  name="clan" class="form-control">
+                                    <option selected>Clan</option>
+                               
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="generation"  name="generation"
+                                    placeholder="Génération" readonly>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+        <!-- <div class="row">
+            <div class="col">
+                <div class="progress">
+                    <div class="progress-bar" role="progressbar" style="width: 45%;" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100">Not working now</div>
+                  </div>
+            </div>
+        </div> -->
+    </form>
+    </div>
+    <script>
+        window.jquery = window.$ = require('jquery');
+        require('bootstrap');
+    </script>
+    <script src="addVampire.js"></script>
+</body>
+
+</html>
