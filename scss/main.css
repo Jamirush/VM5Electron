@@ -16,13 +16,14 @@
 #vampires-list .myVampire {
   color: #56817f;
   border: solid 1px #56817f;
-  margin-left: 1rem;
 }
 
 #vampires-list .card {
   background-color: #0b1618;
   min-width: 12rem;
   cursor: pointer;
+  margin-left: 1rem;
+  margin-top: 1rem;
 }
 
 #addStyle {

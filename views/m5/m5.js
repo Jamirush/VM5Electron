@@ -12,8 +12,10 @@ function generateVampires(vampires){
                      vampire.name + '</h5><p class="card-text">' + 
                      vampire.clan + '</p></div></div>');
         $("#vampires-list").append(card);
+        $('.myVampire').on('click', (evt) => {
+            ipcRenderer.send('open-update-vampire-window', {vampire: vampire})
+        });
     });
-
 }
 
 const openAddVampire = (evt) =>{
@@ -21,6 +23,8 @@ const openAddVampire = (evt) =>{
 };
 
 $('#new-vampire').on('click', openAddVampire);
+
+
 
 ipcRenderer.on('store-data', (evt, data) => {
     generateVampires(data.vampires);

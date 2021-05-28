@@ -26,12 +26,13 @@ $M5-push-dark-hex: #611F43;
     .myVampire{
         color: $M5-midd-hex;
         border:solid 1px $M5-midd-hex; 
-        margin-left: 1rem;
     }
     .card{
         background-color: $M5-dark-hex;
         min-width: 12rem;
         cursor: pointer;
+        margin-left: 1rem;
+        margin-top: 1rem;
     }
 }
 

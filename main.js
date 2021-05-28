@@ -61,6 +61,11 @@ ipcMain.on('add-new-vampire', (evt, newVampire) => {
     });
 });
 
+ipcMain.on('open-update-vampire-window',(evt, data) => {
+    //TODO UPDATE
+    console.log(data.vampire);
+});
+
 //COMMON FUNCTIONS
 function setId(array){
     return array.length > 0 ? array[array.length-1].id + 1 : 1;
