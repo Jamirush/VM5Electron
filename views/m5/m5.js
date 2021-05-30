@@ -13,7 +13,7 @@ function generateVampires(vampires){
                      vampire.clan + '</p></div></div>');
         $("#vampires-list").append(card);
         $('.myVampire').on('click', (evt) => {
-            ipcRenderer.send('open-update-vampire-window', {vampire: vampire})
+            ipcRenderer.send('open-update-vampire-window', {vampire: vampire});
         });
     });
 }

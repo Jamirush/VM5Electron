@@ -46,4 +46,41 @@
 #addItem .form-group #generation {
   background-color: #e0e3e7;
 }
+
+.m5-circle {
+  width: .7em;
+  height: .9rem;
+  border-radius: 50%;
+  border: 1px solid #0b1618;
+  display: inline-block;
+  margin-right: 3px;
+  --bs-gutter-x: 0px;
+}
+
+.m5-square {
+  width: .9em;
+  height: .9rem;
+  border: 1px solid #cc4727;
+  display: inline-block;
+  margin-right: 3px;
+  --bs-gutter-x: 0px;
+}
+
+.dot-obtain {
+  border: 1px solid #0b1618;
+  background-color: #edf5f7;
+}
+
+.dot-check {
+  background-color: #0b1618;
+}
+
+.specialDot {
+  border: 1px solid #cc4727;
+}
+
+.m5-bb {
+  border-bottom: #611F43 solid 1px;
+  margin-bottom: 1rem;
+}
 /*# sourceMappingURL=main.css.map */

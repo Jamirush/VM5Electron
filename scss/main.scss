@@ -2,11 +2,11 @@ $M5-punch-hex: #F20530;
 $M5-light-hex: #EEF0F2;
 $M5-dark-hex: #0b1618;
 $M5-soft-hex: #d85435;
-$M5-midd-hex: #56817f ;
+$M5-midd-hex: #56817f;
 $M5-push-dark-hex: #611F43;
 
 
-#mainStyle{
+#mainStyle {
     color: $M5-light-hex;
     background-color: $M5-dark-hex;
 
@@ -14,20 +14,22 @@ $M5-push-dark-hex: #611F43;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: right;
-    
+
 }
 
-#vampires-list{
-    #new-vampire{
-        border:dashed 3px $M5-soft-hex;    
+#vampires-list {
+    #new-vampire {
+        border: dashed 3px $M5-soft-hex;
         color: $M5-soft-hex;
         min-width: 12rem;
     }
-    .myVampire{
+
+    .myVampire {
         color: $M5-midd-hex;
-        border:solid 1px $M5-midd-hex; 
+        border: solid 1px $M5-midd-hex;
     }
-    .card{
+
+    .card {
         background-color: $M5-dark-hex;
         min-width: 12rem;
         cursor: pointer;
@@ -36,7 +38,7 @@ $M5-push-dark-hex: #611F43;
     }
 }
 
-#addStyle{
+#addStyle {
     color: $M5-dark-hex;
     background-color: $M5-light-hex;
 }
@@ -44,6 +46,7 @@ $M5-push-dark-hex: #611F43;
 #addItem {
     .form-group {
         margin-bottom: 10px;
+
         .form-control {
             font-size: smaller;
             background-color: $M5-light-hex;
@@ -52,9 +55,46 @@ $M5-push-dark-hex: #611F43;
             border-radius: 0%;
         }
 
-        #generation{
+        #generation {
             background-color: darken($M5-light-hex, 5);
         }
     }
 
+}
+
+.m5-circle {
+    width: .7em;
+    height: .9rem;
+    border-radius: 50%;
+    border: 1px solid $M5-dark-hex;
+    display: inline-block;
+    margin-right: 3px;
+    --bs-gutter-x: 0px;
+}
+
+.m5-square {
+    width: .9em;
+    height: .9rem;
+    border: 1px solid darken($M5-soft-hex, 5);
+    display: inline-block;
+    margin-right: 3px;
+    --bs-gutter-x: 0px;
+}
+
+.dot-obtain {
+    border: 1px solid $M5-dark-hex;
+    background-color: lighten($M5-dark-hex, 88%);
+}
+
+.dot-check{
+    background-color: $M5-dark-hex;
+}
+
+.specialDot {
+    border: 1px solid darken($M5-soft-hex, 5);
+}
+
+.m5-bb {
+    border-bottom: $M5-push-dark-hex solid 1px;
+    margin-bottom: 1rem;
 }

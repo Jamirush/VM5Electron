@@ -7,92 +7,352 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="../../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="../../node_modules/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
-    
+
     <link href="../../scss/main.css" rel="stylesheet">
     <title>Création d'un vampire</title>
 </head>
 
-<body id="addStyle"> 
+<body id="addStyle">
     <div class="container">
         <form id="addItem">
-        <div class="card mt-2">
-            <div class="card-body">
-                <div class="d-flex justify-content-between">
-                    <button id="reset" class="btn btn-outline-dark btn-sm">Tout effacer</button>    
-                    <h5>Créer votre vampire</h5>    
-                    <button type="submit" class="btn btn-outline-success btn-sm">Ajouter</button>    
+            <div class="card mt-2">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                        <button id="reset" class="btn btn-outline-dark btn-sm">Tout effacer</button>
+                        <h5>Créer votre vampire</h5>
+                        <button type="submit" class="btn btn-outline-success btn-sm">Ajouter</button>
+                    </div>
                 </div>
             </div>
-          </div>
-        <div class="row">
-            <div class="col-lg-12 text-center">
-                <h1 class="mt-2 mb-2">Vampire</h1>
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h1 class="mt-2 mb-2">Vampire</h1>
+                </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-12 text-center">
-                <h6>La Mascarade</h6>
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h6>La Mascarade</h6>
+                </div>
             </div>
-        </div>
 
-        <div class="row">
-            <div class="col">
-                    <div class="row">
-                        <div class="col">
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="name" name="name"
-                                placeholder="Nom">
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="chronique" name="chronique"
-                                placeholder="Chronique">
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="sir" name="sir"
-                                placeholder="Sire">
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="concept" name="concept"
-                                    placeholder="Concept">
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="ambition" name="ambition"
-                                    placeholder="Ambition">
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="desire" name="desire"
-                                    placeholder="Désir">
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="predator" name="predator"
-                                    placeholder="Prédateur">
-                            </div>
-                            <div class="form-group">
-                                <select id="clan"  name="clan" class="form-control">
-                                    <option selected>Clan</option>
-                               
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="generation"  name="generation"
-                                    placeholder="Génération" readonly>
-                            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Nom">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="chronique" name="chronique" placeholder="Chronique">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="sir" name="sir" placeholder="Sire">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="concept" name="concept" placeholder="Concept">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="ambition" name="ambition" placeholder="Ambition">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="desire" name="desire" placeholder="Désir">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="predator" name="predator" placeholder="Prédateur">
+                    </div>
+                    <div class="form-group">
+                        <select id="clan" name="clan" class="form-control">
+                            <option selected>Clan</option>
+
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="generation" name="generation"
+                            placeholder="Génération" readonly>
+                    </div>
+                </div>
+            </div>
+            <div class="row m5-bb">
+                <div class="col-lg-12 text-center">
+                    <h3 class="mt-2 mb-2">Attributs</h3>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label>Force</label>
+                        <div id="strength" class="form-group float-end">
                         </div>
                     </div>
+                    <div class="form-group">
+                        <label>Dextérité</label>
+                        <div id="dexterity" class="form-group float-end">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Vigueur</label>
+                        <div id="vigor" class="form-group float-end">
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label>Charisme</label>
+                        <div id="charisma" class="form-group float-end">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Manipulation</label>
+                        <div id="manipulation" class="form-group float-end">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Sang-froid</label>
+                        <div id="selfControl" class="form-group float-end">
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label>Intelligence</label>
+                        <div id="intelligence" class="form-group float-end">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Astuce</label>
+                        <div id="wit" class="form-group float-end">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Résolution</label>
+                        <div id="resoluteness" class="form-group float-end">
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-        <!-- <div class="row">
+            <!--Santé = Vigueur + 3 ; Volonté = Sang-froid + Résolution.-->
+            <div class="d-flex flex-wrap justify-content-center">
+                <div class="form-group text-center">
+                    <label>Santé</label>
+                    <div id="heal" class="form-group text-center me-3">
+                        <spam id="heal_1" class="m5-square dot-obtain"></spam>
+                        <spam id="heal_2" class="m5-square dot-obtain"></spam>
+                        <spam id="heal_3 " class="m5-square dot-obtain"></spam>
+                        <spam id="heal_4" class="m5-square"></spam>
+                        <spam id="heal_5" class="m5-square"></spam>
+                        <spam id="heal_6" class="m5-square"></spam>
+                        <spam id="heal_7" class="m5-square"></spam>
+                        <spam id="heal_8" class="m5-square"></spam>
+                        <spam id="heal_9" class="m5-square"></spam>
+                        <spam id="heal_10" class="m5-square"></spam>
+                    </div>
+                </div>
+                <div class="form-group text-center">
+                    <label>Volonté</label>
+                    <div id="willpower" class="form-group text-center ms-3">
+                        <spam id="willpower_1" class="m5-square dot-obtain"></spam>
+                        <spam id="willpower_2" class="m5-square dot-obtain"></spam>
+                        <spam id="willpower_3" class="m5-square"></spam>
+                        <spam id="willpower_4" class="m5-square"></spam>
+                        <spam id="willpower_5" class="m5-square"></spam>
+                        <spam id="willpower_6" class="m5-square"></spam>
+                        <spam id="willpower_7" class="m5-square"></spam>
+                        <spam id="willpower_8" class="m5-square"></spam>
+                        <spam id="willpower_9" class="m5-square"></spam>
+                        <spam id="willpower_10" class="m5-square"></spam>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row m5-bb">
+                <div class="col-lg-12 text-center">
+                    <h3 class="mt-2 mb-2">Compétences</h3>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label>Armes à feu</label>
+                        <div id="firearms" class="form-group float-end">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Artisanat</label>
+                        <div id="artsAndCrafts" class="form-group float-end">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Athlétisme</label>
+                        <div id="athletics" class="form-group float-end">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Bagarre</label>
+                        <div id="brawl" class="form-group float-end">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Conduite</label>
+                        <div id="driving" class="form-group float-end">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Furtivité</label>
+                        <div id="stealth" class="form-group float-end">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Larcin</label>
+                        <div id="larceny" class="form-group float-end">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Mêlée</label>
+                        <div id="melee" class="form-group float-end">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Survie</label>
+                        <div id="survival" class="form-group float-end">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="form-group">
+                        <label>Animaux</label>
+                        <div id="animals" class="form-group float-end">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Commandement</label>
+                        <div id="commandment" class="form-group float-end">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Empathie</label>
+                        <div id="empathy" class="form-group float-end">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Étiquette</label>
+                        <div id="etiquette" class="form-group float-end">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Expériense de la rue</label>
+                        <div id="streetExperience" class="form-group float-end">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Intimidation</label>
+                        <div id="intimidation" class="form-group float-end">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Performance</label>
+                        <div id="performance" class="form-group float-end">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Persuasion</label>
+                        <div id="persuasion" class="form-group float-end">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Subterfuge</label>
+                        <div id="subterfuge" class="form-group float-end">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="form-group">
+                        <label>Érudition</label>
+                        <div id="erudition" class="form-group float-end">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Finances</label>
+                        <div id="finance" class="form-group float-end">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Investigation</label>
+                        <div id="investigation" class="form-group float-end">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Médecine</label>
+                        <div id="medicine" class="form-group float-end">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Occultisme</label>
+                        <div id="occultism" class="form-group float-end">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Politique</label>
+                        <div id="politics" class="form-group float-end">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Sciences</label>
+                        <div id="science" class="form-group float-end">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Technologie</label>
+                        <div id="technology" class="form-group float-end">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Vigilance</label>
+                        <div id="vigilance" class="form-group float-end">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <!-- <div class="row">
             <div class="col">
                 <div class="progress">
                     <div class="progress-bar" role="progressbar" style="width: 45%;" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100">Not working now</div>
                   </div>
             </div>
         </div> -->
-    </form>
+        </form>
     </div>
     <script>
         window.jquery = window.$ = require('jquery');
