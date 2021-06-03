@@ -139,7 +139,7 @@ ipcRenderer.on('clans-with-addVampire', (evt, data) => {
         index++;
     });
     
-    renderSkillRules(data.jackOfAllTradesSkills);
+    renderSkillRules(data.jackOfAllTradesSkills, skillsTypeSelected);
 
     $('.m5-circle-ability').on('click', (evt) => {
         const words = evt.target.id.split('_');
@@ -178,40 +178,38 @@ $('input[name=skillTypeChoice]').on('click', (evt) => {
 
     switch (type) {
         case 'jackOfAllTradesSkills':
-            renderSkillRules(jackOfAllTradesSkills);
+            renderSkillRules(jackOfAllTradesSkills, type);
             break;
         case 'balancedSkills':
-            renderSkillRules(balancedSkills);
+            renderSkillRules(balancedSkills, type);
             break;
         case 'specialistskills':
-            renderSkillRules(specialistskills);
+            renderSkillRules(specialistskills, type);
             break;
         default:
             break;
     }
 });
 
-function renderSkillRules(rulesArray) {
-    index = 1;
+function renderSkillRules(rulesArray, type) {
+    let index = 1;
     $('#skillRules').text("");
     rulesArray.forEach(rule => {
         $('#skillRules').append($('<i id="skillRules_' + index + '" class="me-1">' + rule.value + '</i>'));
         index++;
     });    
-    rulesIsRespected('skill', array);
+    rulesIsRespected('skill', jackOfAllTradesSkills);
 }
 
 function selectSkillsArrayByType(type){
-    if(skillsTypeSelected === 'jackOfAllTradesSkills'){
-        return  JSON.parse(JSON.stringify(jackOfAllTradesSkills));
-    } else if (skillsTypeSelected === 'balancedSkills'){
-        return JSON.parse(JSON.stringify(balancedSkills));
+    if(type === 'jackOfAllTradesSkills'){
+        return  resetArrayValues(jackOfAllTradesSkills);
+    } else if (type === 'balancedSkills'){
+        return resetArrayValues(balancedSkills);
     } else {
-        return JSON.parse(JSON.stringify(specialistskills));
+        return resetArrayValues(specialistskills);
     }
 }
-
-
 
 function setDotValue(type, name, value, array, max, min = 0) {
     for (let i = 0; i < array.length; i++) {
@@ -267,23 +265,27 @@ function renderWillpowerDot(lastDotCheckValue, value) {
     }
 }
 
+function resetArrayValues(array){
+    array.forEach(element => {
+        element.value = false;
+    });
+    return array;
+}
+
 function rulesIsRespected(type, array){
+    console.log(array);
     let rules = null;
     let allRulesIsTrue = true;
     let id = '';
     switch (type) {
         case 'ability':
-            rules = JSON.parse(JSON.stringify(abilitysRules));
+            rules = resetArrayValues(abilitysRules);
             id = 'abilitysRules';
             break;
         case 'skill':
-            if(skillsTypeSelected === 'jackOfAllTradesSkills'){
-                rules = JSON.parse(JSON.stringify(jackOfAllTradesSkills));
-            } else if (skillsTypeSelected === 'balancedSkills'){
-                rules = JSON.parse(JSON.stringify(balancedSkills));
-            } else {
-                rules = JSON.parse(JSON.stringify(specialistskills));
-            }
+            rules= selectSkillsArrayByType(skillsTypeSelected);
+            console.log('a');
+            console.log(rules);
             id = 'skillRules';
             break;
         default:
