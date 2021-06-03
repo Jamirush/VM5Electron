@@ -2,6 +2,7 @@
 const {
     ipcRenderer
 } = require('electron');
+const { close } = require('original-fs');
 
 const dotNumber = 5; //Can show more dot
 const maxDot = 5;
@@ -139,7 +140,7 @@ ipcRenderer.on('clans-with-addVampire', (evt, data) => {
         index++;
     });
     
-    renderSkillRules(data.jackOfAllTradesSkills);
+    renderSkillRules(data.jackOfAllTradesSkills, skillsTypeSelected);
 
     $('.m5-circle-ability').on('click', (evt) => {
         const words = evt.target.id.split('_');
@@ -178,40 +179,38 @@ $('input[name=skillTypeChoice]').on('click', (evt) => {
 
     switch (type) {
         case 'jackOfAllTradesSkills':
-            renderSkillRules(jackOfAllTradesSkills);
+            renderSkillRules(jackOfAllTradesSkills, type);
             break;
         case 'balancedSkills':
-            renderSkillRules(balancedSkills);
+            renderSkillRules(balancedSkills, type);
             break;
         case 'specialistskills':
-            renderSkillRules(specialistskills);
+            renderSkillRules(specialistskills, type);
             break;
         default:
             break;
     }
 });
 
-function renderSkillRules(rulesArray) {
-    index = 1;
+function renderSkillRules(rulesArray, type) {
+    let index = 1;
     $('#skillRules').text("");
     rulesArray.forEach(rule => {
         $('#skillRules').append($('<i id="skillRules_' + index + '" class="me-1">' + rule.value + '</i>'));
         index++;
     });    
-    rulesIsRespected('skill', array);
+    rulesIsRespected('skill', skills);
 }
 
 function selectSkillsArrayByType(type){
-    if(skillsTypeSelected === 'jackOfAllTradesSkills'){
-        return  JSON.parse(JSON.stringify(jackOfAllTradesSkills));
-    } else if (skillsTypeSelected === 'balancedSkills'){
-        return JSON.parse(JSON.stringify(balancedSkills));
+    if(type === 'jackOfAllTradesSkills'){
+        return  jackOfAllTradesSkills;
+    } else if (type === 'balancedSkills'){
+        return balancedSkills;
     } else {
-        return JSON.parse(JSON.stringify(specialistskills));
+        return specialistskills;
     }
 }
-
-
 
 function setDotValue(type, name, value, array, max, min = 0) {
     for (let i = 0; i < array.length; i++) {
@@ -267,35 +266,40 @@ function renderWillpowerDot(lastDotCheckValue, value) {
     }
 }
 
+function resetArrayUse(array){
+    console.log(array);
+    for (let index = 0; index < array.length; index++) {
+        array[index].use = false;
+        
+    }
+    console.log(array);
+
+    return array;
+}
+
 function rulesIsRespected(type, array){
     let rules = null;
     let allRulesIsTrue = true;
     let id = '';
     switch (type) {
         case 'ability':
-            rules = JSON.parse(JSON.stringify(abilitysRules));
+            rules = abilitysRules;
             id = 'abilitysRules';
             break;
         case 'skill':
-            if(skillsTypeSelected === 'jackOfAllTradesSkills'){
-                rules = JSON.parse(JSON.stringify(jackOfAllTradesSkills));
-            } else if (skillsTypeSelected === 'balancedSkills'){
-                rules = JSON.parse(JSON.stringify(balancedSkills));
-            } else {
-                rules = JSON.parse(JSON.stringify(specialistskills));
-            }
+            rules= selectSkillsArrayByType(skillsTypeSelected);
             id = 'skillRules';
             break;
         default:
             return;
     }
-    console.log(rules);
-    
+    resetArrayUse(rules);
     $("[id^='"+ id +"_']").removeClass('badge bg-secondary');
     array.forEach(item => {
         let ruleSet = false;
         for (let i = 0; i < rules.length; i++) {
-            const atIndex = i+1;
+            const atIndex = i + 1;
+            console.log(ruleSet + ' : '+rules[i].value+' : '+ item.value+' : '+rules[i].use );
             if( ruleSet === false && rules[i].value === item.value && rules[i].use === false){
                 rules[i].use = true;
                 ruleSet = true;
@@ -307,12 +311,29 @@ function rulesIsRespected(type, array){
             } 
         }
     });
-    console.log(rules);    
 
     if(allRulesIsTrue === true){
-        abilitysRulesRespected = true;
-    }else{
-        abilitysRulesRespected = false;
+        switch (type) {
+            case 'ability':
+                abilitysRulesRespected = true;
+                break;
+            case 'skill':
+                skillsRulesRespected = true;
+                break;
+            default:
+                return;
+        }
+    }else{ 
+        switch (type) {
+            case 'ability':
+                abilitysRulesRespected = false;
+                break;
+            case 'skill':
+                skillsRulesRespected = false;
+                break;
+            default:
+                return;
+        }
     }
 }
 
