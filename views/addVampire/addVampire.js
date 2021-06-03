@@ -2,6 +2,7 @@
 const {
     ipcRenderer
 } = require('electron');
+const { close } = require('original-fs');
 
 const dotNumber = 5; //Can show more dot
 const maxDot = 5;
@@ -198,16 +199,16 @@ function renderSkillRules(rulesArray, type) {
         $('#skillRules').append($('<i id="skillRules_' + index + '" class="me-1">' + rule.value + '</i>'));
         index++;
     });    
-    rulesIsRespected('skill', jackOfAllTradesSkills);
+    rulesIsRespected('skill', skills);
 }
 
 function selectSkillsArrayByType(type){
     if(type === 'jackOfAllTradesSkills'){
-        return  resetArrayValues(jackOfAllTradesSkills);
+        return  jackOfAllTradesSkills;
     } else if (type === 'balancedSkills'){
-        return resetArrayValues(balancedSkills);
+        return balancedSkills;
     } else {
-        return resetArrayValues(specialistskills);
+        return specialistskills;
     }
 }
 
@@ -265,39 +266,40 @@ function renderWillpowerDot(lastDotCheckValue, value) {
     }
 }
 
-function resetArrayValues(array){
-    array.forEach(element => {
-        element.value = false;
-    });
+function resetArrayUse(array){
+    console.log(array);
+    for (let index = 0; index < array.length; index++) {
+        array[index].use = false;
+        
+    }
+    console.log(array);
+
     return array;
 }
 
 function rulesIsRespected(type, array){
-    console.log(array);
     let rules = null;
     let allRulesIsTrue = true;
     let id = '';
     switch (type) {
         case 'ability':
-            rules = resetArrayValues(abilitysRules);
+            rules = abilitysRules;
             id = 'abilitysRules';
             break;
         case 'skill':
             rules= selectSkillsArrayByType(skillsTypeSelected);
-            console.log('a');
-            console.log(rules);
             id = 'skillRules';
             break;
         default:
             return;
     }
-    console.log(rules);
-    
+    resetArrayUse(rules);
     $("[id^='"+ id +"_']").removeClass('badge bg-secondary');
     array.forEach(item => {
         let ruleSet = false;
         for (let i = 0; i < rules.length; i++) {
-            const atIndex = i+1;
+            const atIndex = i + 1;
+            console.log(ruleSet + ' : '+rules[i].value+' : '+ item.value+' : '+rules[i].use );
             if( ruleSet === false && rules[i].value === item.value && rules[i].use === false){
                 rules[i].use = true;
                 ruleSet = true;
@@ -309,12 +311,29 @@ function rulesIsRespected(type, array){
             } 
         }
     });
-    console.log(rules);    
 
     if(allRulesIsTrue === true){
-        abilitysRulesRespected = true;
-    }else{
-        abilitysRulesRespected = false;
+        switch (type) {
+            case 'ability':
+                abilitysRulesRespected = true;
+                break;
+            case 'skill':
+                skillsRulesRespected = true;
+                break;
+            default:
+                return;
+        }
+    }else{ 
+        switch (type) {
+            case 'ability':
+                abilitysRulesRespected = false;
+                break;
+            case 'skill':
+                skillsRulesRespected = false;
+                break;
+            default:
+                return;
+        }
     }
 }
 
