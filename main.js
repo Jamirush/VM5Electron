@@ -50,7 +50,14 @@ ipcMain.on('open-new-vampire-window', (evt, data) => {
         win.send('clans-with-addVampire', {
             clans: clanArray,
             abilitys: abilitysArray,
-            skills: skillsArray
+            skills: skillsArray,
+            disciplines: disciplinesArray,
+            avantages : avantagesArray,
+            flaws: flawsArray,
+            abilitysRules: abilitysRulesArray,
+            jackOfAllTradesSkills: jackOfAllTradesSkillsArray,
+            balancedSkills: balancedSkillsArray,
+            specialistskills: specialistskillsArray
         });
     });
 });
@@ -131,40 +138,49 @@ Menu.setApplicationMenu(menu);
 // DATA //
 
 const clanArray = [{
-        name: "Brutjah",
-        value: 1
+        name: "brutjah",
+        description: "Brutjah",
+        disciplines: ["celerity","presence","potence"]
     },
     {
-        name: "Gangrel",
-        value: 2
+        name: "gangrel",
+        description: "Gangrel",
+        disciplines: ["animalisme","protean","endurance"]
     },
     {
-        name: "Malkavien",
-        value: 3
+        name: "malkavien",
+        description: "Malkavien",
+        disciplines: ["auspex","domination","occultation"]
     },
     {
-        name: "Nosferatu",
-        value: 4
+        name: "nosferatu",
+        description: "Nosferatu",
+        disciplines: ["animalisme","occultation","potence"]
     },
     {
-        name: "Toréador",
-        value: 5
+        name: "toreador",
+        description: "Toréador",
+        disciplines: ["auspex","celerity","presence"]
     },
     {
-        name: "Tremere",
-        value: 6
+        name: "tremere",
+        description: "Tremere",
+        disciplines: ["domination","auspex","thaumaturgy"]
     },
     {
-        name: "Ventrue",
-        value: 7
+        name: "ventrue",
+        description: "Ventrue",
+        disciplines: ["domination","endurance","presence"]
     },
     {
-        name: "Caïtif",
-        value: 8
+        name: "caitif",
+        description: "Caïtif",
+        disciplines: ["animalisme", "auspex", "celerity", "domination", "endurance", "occultation", "presence", "protean", "potence", "thaumaturgy"]
     },
     {
-        name: "Sang Clair",
-        value: 9
+        name: "sangClair",
+        description: "Sang Clair",
+        disciplines: ["alchimie"]
     },
 ];
 const abilitysArray = [{
@@ -204,7 +220,6 @@ const abilitysArray = [{
         value: 1
     },
 ];
-
 const skillsArray = [{
         name: "firearms",
         value: 0
@@ -314,9 +329,272 @@ const skillsArray = [{
         value: 0
     },
 ];
-
-const disciplinesArray0[{
-    
+const disciplinesArray = [{
+        name: "animalisme",
+        description: "Animalisme",
+        value: 0
+    },
+    {
+        name: "auspex",
+        description: "Auspex",
+        value: 0
+    }, 
+    {
+        name: "celerity",
+        description: "Célérité",
+        value: 0
+    }, 
+    {
+        name: "domination",
+        description: "Domination",
+        value: 0
+    }, 
+    {
+        name: "endurance",
+        description: "Force d’âme",
+        value: 0
+    }, 
+    {
+        name: "occultation",
+        description: "Occultation",
+        value: 0
+    }, 
+    {
+        name: "presence",
+        description: "Présence",
+        value: 0
+    }, 
+    {
+        name: "protean",
+        description: "Protéisme",
+        value: 0
+    }, 
+    {
+        name: "potence",
+        description: "Puissance",
+        value: 0
+    }, 
+    {
+        name: "thaumaturgy",
+        description: "Sorcellerie du sang",
+        value: 0
+    }, 
+    {
+        name: "alchimie",
+        description: "Alchimie du sang clair",
+        value: 0
+    },
+];
+const avantagesArray = [{
+    name: "avantage1",
+    description: "",
+    value: 0
+},{
+    name: "avantage2",
+    description: "",
+    value: 0
+},{
+    name: "avantage3",
+    description: "",
+    value: 0
+},{
+    name: "avantage4",
+    description: "",
+    value: 0
+},{
+    name: "avantage5",
+    description: "",
+    value: 0
+},{
+    name: "avantage6",
+    description: "",
+    value: 0
 }
-
-]
+];
+const flawsArray = [{
+    name: "flaw1",
+    description: "",
+    value: 0
+},{
+    name: "flaw2",
+    description: "",
+    value: 0
+},{
+    name: "flaw3",
+    description: "",
+    value: 0
+},{
+    name: "flaw4",
+    description: "",
+    value: 0
+},{
+    name: "flaw5",
+    description: "",
+    value: 0
+},{
+    name: "flaw6",
+    description: "",
+    value: 0
+}
+];
+const abilitysRulesArray = [{
+    value : 4,
+    use: false
+},{
+    value : 3,
+    use: false
+},{
+    value : 3,
+    use: false
+},{
+    value : 3,
+    use: false
+},{
+    value : 2,
+    use: false
+},{
+    value : 2,
+    use: false
+},{
+    value : 2,
+    use: false
+},{
+    value : 2,
+    use: false
+},{
+    value : 1,
+    use: false 
+}
+];
+const jackOfAllTradesSkillsArray =[{
+    value : 3,
+    use: false 
+},{
+    value : 2,
+    use: false 
+},{
+    value : 2,
+    use: false 
+},{
+    value : 2,
+    use: false 
+},{
+    value : 2,
+    use: false 
+},{
+    value : 2,
+    use: false 
+},{
+    value : 2,
+    use: false 
+},{
+    value : 2,
+    use: false 
+},{
+    value : 2,
+    use: false 
+},{
+    value : 1,
+    use: false 
+},{
+    value : 1,
+    use: false 
+},{
+    value : 1,
+    use: false 
+},{
+    value : 1,
+    use: false 
+},{
+    value : 1,
+    use: false 
+},{
+    value : 1,
+    use: false 
+},{
+    value : 1,
+    use: false 
+},{
+    value : 1,
+    use: false 
+},{
+    value : 1,
+    use: false 
+},{
+    value : 1,
+    use: false 
+}];
+const balancedSkillsArray =[{
+    value : 3,
+    use: false 
+},{
+    value : 3,
+    use: false 
+},{
+    value : 3,
+    use: false 
+},{
+    value : 2,
+    use: false 
+},{
+    value : 2,
+    use: false 
+},{
+    value : 2,
+    use: false 
+},{
+    value : 2,
+    use: false 
+},{
+    value : 2,
+    use: false 
+},{
+    value : 1,
+    use: false 
+},{
+    value : 1,
+    use: false 
+},{
+    value : 1,
+    use: false 
+},{
+    value : 1,
+    use: false 
+},{
+    value : 1,
+    use: false 
+},{
+    value : 1,
+    use: false 
+},{
+    value : 1,
+    use: false 
+}];
+const specialistskillsArray =[{
+    value : 4,
+    use: false 
+},{
+    value : 3,
+    use: false 
+},{
+    value : 3,
+    use: false 
+},{
+    value : 3,
+    use: false 
+},{
+    value : 2,
+    use: false 
+},{
+    value : 2,
+    use: false 
+},{
+    value : 1,
+    use: false 
+},{
+    value : 1,
+    use: false 
+},{
+    value : 1,
+    use: false 
+}];
