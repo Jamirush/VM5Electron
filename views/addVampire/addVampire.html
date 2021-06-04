@@ -23,26 +23,8 @@
                         <h5>Créer votre vampire</h5>
                         <button type="submit" class="btn btn-outline-success btn-sm">Ajouter</button>
                     </div>
-                    <div class="d-flex justify-content-between">
-                        <span>Attributs : <span id="abilitysRules"></span></span>
-                        <span>                            
-                            <span class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="skillTypeChoice" id="skillRulesRadio1" value="jackOfAllTradesSkills" checked>
-                                <label class="form-check-label" for="skillRulesRadio1">Touche-à-tout</label>
-                            </span>
-                            <span class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="skillTypeChoice" id="skillRulesRadio2" value="balancedSkills">
-                                <label class="form-check-label" for="skillRulesRadio2">Équilibré</label>
-                            </span>
-                            <span class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="skillTypeChoice" id="skillRulesRadio3" value="specialistskills">
-                                <label class="form-check-label" for="skillRulesRadio3">Spécialiste</label>
-                            </span>
-                        </span>
-                    </div>
-                    <div class="d-flex justify-content-between">
-                        <span>Compétences : <span id="skillRules"></span></span>                         
-                    </div>
+                    
+                   
                 </div>
             </div>
             <div class="row">
@@ -85,7 +67,7 @@
                     </div>
                     <div class="form-group">
                         <select id="clan" name="clan" class="form-control">
-                            <option selected>Clan</option>
+                            <option selected> </option>
 
                         </select>
                     </div>
@@ -96,7 +78,14 @@
                 </div>
             </div>
             <div class="row m5-bb">
-                <div class="col-lg-12 text-center">
+                <div class="col-lg-4 text-center">
+                    <div class="d-flex justify-content-between">
+                        <span><span id="abilitysRules"></span></span>
+                      
+                    </div>
+
+                </div>
+                <div class="col-lg-4 text-center">
                     <h3 class="mt-2 mb-2">Attributs</h3>
                 </div>
             </div>
@@ -187,16 +176,41 @@
                     </div>
                 </div>
             </div>
-            <div class="row m5-bb">
-                <div class="col-lg-12 text-center">
+            <div class="row m5-bb"> 
+                <div class="col-md-4 text-center">
+                    <div class="d-flex justify-content-between">
+                        <span><span id="skillRules"></span></span>                         
+                    </div>
+
+                </div>
+                <div class="col-md-4 text-center">
                     <h3 class="mt-2 mb-2">Compétences</h3>
+                </div>
+            
+                <div class="col-md-4 text-center">
+                    <div class="d-flex justify-content-between">
+                        <span>                            
+                            <span class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="skillTypeChoice" id="skillRulesRadio1" value="jackOfAllTradesSkills" checked>
+                                <label class="form-check-label" for="skillRulesRadio1">Touche-à-tout</label>
+                            </span>
+                            <span class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="skillTypeChoice" id="skillRulesRadio2" value="balancedSkills">
+                                <label class="form-check-label" for="skillRulesRadio2">Équilibré</label>
+                            </span>
+                            <span class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="skillTypeChoice" id="skillRulesRadio3" value="specialistskills">
+                                <label class="form-check-label" for="skillRulesRadio3">Spécialiste</label>
+                            </span>
+                        </span>
+                    </div>
                 </div>
             </div>
 
             <div class="row">
                 <div class="col">
                     <div class="form-group">
-                        <label>Armes à feu</label>
+                        <label>Armes à feu</label><input type="texte" >
                         <div id="firearms" class="form-group float-end">
                         </div>
                     </div>
@@ -335,6 +349,30 @@
                         <label>Vigilance</label>
                         <div id="vigilance" class="form-group float-end">
                         </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <span id="specialisationRules"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="card mt-2 sticky-top">
+                        <div class="card-body">
+                    <div class="form-group">
+                        <div class="d-flex flex-row bd-highlight">
+                            <label>Ajouter une spécialisation</label>
+                            <select id="specialisation" name="specialisation" class="form-control">
+                                <option selected> </option>
+
+                            </select>        
+                            <input type="text" class="form-control" id="specialisationDescription" placeholder="Description">
+                            <span class="btn btn-outline-dark btn-sm">Ajouter</span>
+                        </div>
+                        </div>
+                    </div>
                     </div>
                 </div>
             </div>

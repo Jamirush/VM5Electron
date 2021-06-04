@@ -54,7 +54,9 @@ $M5-push-dark-hex: #611F43;
             border-bottom: solid $M5-push-dark-hex 1px;
             border-radius: 0%;
         }
-
+        input{
+            display: inline-block;
+        }
         #generation {
             background-color: darken($M5-light-hex, 5);
         }

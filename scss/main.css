@@ -43,6 +43,10 @@
   border-radius: 0%;
 }
 
+#addItem .form-group input {
+  display: inline-block;
+}
+
 #addItem .form-group #generation {
   background-color: #e0e3e7;
 }

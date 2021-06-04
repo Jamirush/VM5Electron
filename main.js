@@ -57,7 +57,8 @@ ipcMain.on('open-new-vampire-window', (evt, data) => {
             abilitysRules: abilitysRulesArray,
             jackOfAllTradesSkills: jackOfAllTradesSkillsArray,
             balancedSkills: balancedSkillsArray,
-            specialistskills: specialistskillsArray
+            specialistskills: specialistskillsArray,
+            specialisationRules: specialisationRulesArray
         });
     });
 });
@@ -222,111 +223,165 @@ const abilitysArray = [{
 ];
 const skillsArray = [{
         name: "firearms",
-        value: 0
+        description:"Armes à feu",
+        value: 0,
+        spe: []
     },
     {
         name: "artsAndCrafts",
-        value: 0
+        description:"Artisanat",
+        value: 0,
+        spe: []
     },
     {
         name: "athletics",
-        value: 0
+        description:"Athlétisme",
+        value: 0,
+        spe: []
     },
     {
         name: "brawl",
-        value: 0
+        description:"Bagarre",
+        value: 0,
+        spe: []
     },
     {
         name: "driving",
-        value: 0
+        description:"Conduite",
+        value: 0,
+        spe: []
     },
     {
         name: "stealth",
-        value: 0
+        description:"Furtivité",
+        value: 0,
+        spe: []
     },
     {
         name: "larceny",
-        value: 0
+        description:"Larcin",
+        value: 0,
+        spe: []
     },
     {
         name: "melee",
-        value: 0
+        description:"Mêlée",
+        value: 0,
+        spe: []
     },
     {
         name: "survival",
-        value: 0
+        description:"Survie",
+        value: 0,
+        spe: []
     },
     {
         name: "animals",
-        value: 0
+        description:"Animaux",
+        value: 0,
+        spe: []
     },
     {
         name: "commandment",
-        value: 0
+        description:"Commandement",
+        value: 0,
+        spe: []
     },
     {
         name: "empathy",
-        value: 0
+        description:"Empathie",
+        value: 0,
+        spe: []
     },
     {
         name: "etiquette",
-        value: 0
+        description:"Étiquette",
+        value: 0,
+        spe: []
     },
     {
         name: "streetExperience",
-        value: 0
+        description:"Expériense de la rue",
+        value: 0,
+        spe: []
     },
     {
         name: "intimidation",
-        value: 0
+        description:"Intimidation",
+        value: 0,
+        spe: []
     },
     {
         name: "performance",
-        value: 0
+        description:"Performance",
+        value: 0,
+        spe: []
     },
     {
         name: "persuasion",
-        value: 0
+        description:"Persuasion",
+        value: 0,
+        spe: []
     },
     {
         name: "subterfuge",
-        value: 0
+        description:"Subterfuge",
+        value: 0,
+        spe: []
     },
     {
         name: "erudition",
-        value: 0
+        description:"Érudition",
+        value: 0,
+        spe: []
     },
     {
         name: "finance",
-        value: 0
+        description:"Finances",
+        value: 0,
+        spe: []
     },
     {
         name: "investigation",
-        value: 0
+        description:"Investigation",
+        value: 0,
+        spe: []
     },
     {
         name: "medicine",
-        value: 0
+        description:"Médecine",
+        value: 0,
+        spe: []
     },
     {
         name: "occultism",
-        value: 0
+        description:"Occultisme",
+        value: 0,
+        spe: []
     },
     {
         name: "politics",
-        value: 0
+        description:"Politique",
+        value: 0,
+        spe: []
     },
     {
         name: "science",
-        value: 0
+        description:"Sciences",
+        value: 0,
+        spe: []
     },
     {
         name: "technology",
-        value: 0
+        description:"Technologie",
+        value: 0,
+        spe: []
     },
     {
         name: "vigilance",
-        value: 0
+        description:"Vigilance",
+        value: 0,
+        spe: []
     },
 ];
 const disciplinesArray = [{
@@ -596,5 +651,10 @@ const specialistskillsArray =[{
     use: false 
 },{
     value : 1,
+    use: false 
+}];
+const specialisationRulesArray= [{
+    forName : '',
+    value : '',
     use: false 
 }];

@@ -21,6 +21,7 @@ let balancedSkills = null;
 let specialistskills = null;
 let skillsRulesRespected = false;
 let skillsTypeSelected = 'jackOfAllTradesSkills';
+let specialisationRules = null;
 
 
 
@@ -47,7 +48,7 @@ ipcRenderer.on('clans-with-addVampire', (evt, data) => {
     jackOfAllTradesSkills = data.jackOfAllTradesSkills;
     balancedSkills = data.balancedSkills;
     specialistskills = data.specialistskills;
-
+    specialisationRules = data.specialisationRules;
     
 
     data.clans.forEach(clan => {
@@ -60,19 +61,22 @@ ipcRenderer.on('clans-with-addVampire', (evt, data) => {
         while (i <= dotNumber) {
             const check = i <= ability.value ? 'dot-check' : '';
             const specialDot = i > maxDot ? 'specialDot' : '';
-            const option = $('<span id=' + ability.name + '_' + i + ' class="m5-circle m5-circle-ability ' + check + ' ' + specialDot + '"></span>');
-            $('#' + ability.name).append(option);
+            const item = $('<span id=' + ability.name + '_' + i + ' class="m5-circle m5-circle-ability ' + check + ' ' + specialDot + '"></span>');
+            $('#' + ability.name).append(item);
             i++;
         }
     });    
 
     data.skills.forEach(skill => {
+        const option = $('<option value="' + skill.name + '">' + skill.description + '</option>');
+        $('#specialisation').append(option);
+
         let i = 1;
         while (i <= dotNumber) {
             const check = i <= skill.value ? 'dot-check' : '';
             const specialDot = i > maxDot ? 'specialDot' : '';
-            const option = $('<span id=' + skill.name + '_' + i + ' class="m5-circle m5-circle-skill ' + check + ' ' + specialDot + '"></span>');
-            $('#' + skill.name).append(option);
+            const item = $('<span id=' + skill.name + '_' + i + ' class="m5-circle m5-circle-skill ' + check + ' ' + specialDot + '"></span>');
+            $('#' + skill.name).append(item);
             i++;
         }
     });
@@ -89,9 +93,9 @@ ipcRenderer.on('clans-with-addVampire', (evt, data) => {
         while (i <= dotNumber) {
             const check = i <= discipline.value ? 'dot-check' : '';
             const specialDot = i > maxDot ? 'specialDot' : '';
-            const option = $('<span id=' + discipline.name + '_' + i + ' class="m5-circle m5-circle-discipline' + check + ' ' + specialDot + '"></span>');
+            const item = $('<span id=' + discipline.name + '_' + i + ' class="m5-circle m5-circle-discipline' + check + ' ' + specialDot + '"></span>');
             
-            $('#'+ discipline.name).append(option);
+            $('#'+ discipline.name).append(item);
             i++;
         }
     });
@@ -110,8 +114,8 @@ ipcRenderer.on('clans-with-addVampire', (evt, data) => {
         while (i <= dotNumber) {
             const check = i <= avantage.value ? 'dot-check' : '';
             const specialDot = i > maxDot ? 'specialDot' : '';
-            const option = $('<span id=' + avantage.name + '_' + i + ' class="m5-circle m5-circle-avantage' + check + ' ' + specialDot + '"></span>');
-            $('#' +avantage.name).append(option);
+            const item = $('<span id=' + avantage.name + '_' + i + ' class="m5-circle m5-circle-avantage' + check + ' ' + specialDot + '"></span>');
+            $('#' +avantage.name).append(item);
             i++;
         }
         index++;
@@ -128,8 +132,8 @@ ipcRenderer.on('clans-with-addVampire', (evt, data) => {
         while (i <= dotNumber) {
             const check = i <= flaw.value ? 'dot-check' : '';
             const specialDot = i > maxDot ? 'specialDot' : '';
-            const option = $('<span id=' + flaw.name + '_' + i + ' class="m5-circle m5-circle-flaw' + check + ' ' + specialDot + '"></span>');
-            $('#' + flaw.name).append(option);
+            const item = $('<span id=' + flaw.name + '_' + i + ' class="m5-circle m5-circle-flaw' + check + ' ' + specialDot + '"></span>');
+            $('#' + flaw.name).append(item);
             i++;
         }
         index++;
@@ -141,7 +145,7 @@ ipcRenderer.on('clans-with-addVampire', (evt, data) => {
     });
     
     renderSkillRules(data.jackOfAllTradesSkills, skillsTypeSelected);
-
+    // renderSpecialisationRules(data.specialisationRules);
     $('.m5-circle-ability').on('click', (evt) => {
         const words = evt.target.id.split('_');
         setDotValue('ability', words[0], words[1], abilitys, maxDot, 1);
@@ -212,6 +216,30 @@ function selectSkillsArrayByType(type){
     }
 }
 
+// function renderSpecialisationRules(){
+//     let index = 1;
+//     $('#specialisationRules').text("");
+//     skills.forEach(rule => {
+//         $('#specialisationRules').append($('<i id="specialisationRules' + index + '" class="me-1">' + rule.forName === "" ? '1' : rule.forName + '</i>'));
+//         index++;
+//     });    
+//     rulesSpecialistskillsIsRespected();
+// }
+
+// function rulesSpecialistskillsIsRespected(){
+//     skills.forEach(skill => {
+//         if(skill.spe.length > 0){
+
+//         }
+//     });
+// }
+
+
+
+
+
+
+
 function setDotValue(type, name, value, array, max, min = 0) {
     for (let i = 0; i < array.length; i++) {
         if (array[i].name === name) {
@@ -229,9 +257,21 @@ function setDotValue(type, name, value, array, max, min = 0) {
             if (array[i].name === 'selfControl' || array[i].name === 'resoluteness') {
                 renderWillpowerDot(startValue, array[i].value);
             }
+            if (array[i].name === 'artsAndCrafts') {
+                alterSkillRules(startValue, array[i].value, array[i].name);
+            }
             break;
         }
     }
+}
+
+function alterSkillRules(startValue, endValue, name){
+    if(startValue === 0 && startValue < endValue){
+        specialisationRules.push({forName: '', value: '', use: false });
+    } else if(endValue === 0 && startValue > endValue){
+
+    }
+
 }
 
 function renderDot(lastDotCheckValue, name, value) {
